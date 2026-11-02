@@ -111,7 +111,7 @@ def main():
 
     d15 = fetch_candles(900, 450)
     m1 = fetch_candles(60, 60)
-    if d15.index.max() < T - pd.Timedelta(minutes=45) or m1.index.max() < T - pd.Timedelta(minutes=10):
+    if d15.index.max() < T - pd.Timedelta(minutes=15) or m1.index.max() < T - pd.Timedelta(minutes=1):
         raise RuntimeError("Price data looks stale, not logging")
 
     F = build_features(d15, m1, T)
